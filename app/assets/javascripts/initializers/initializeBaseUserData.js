@@ -15,7 +15,10 @@ function addRelevantButtonsToArticle(user) {
     let actions = [];
     const published = JSON.parse(articleContainer.dataset.published);
 
-    if (parseInt(articleContainer.dataset.authorId, 10) === user.id) {
+    if (
+      parseInt(articleContainer.dataset.authorId, 10) === user.id ||
+      parseInt(articleContainer.dataset.organizationAdminId, 10) === user.id
+    ) {
       actions.push(
         `<a class="crayons-btn crayons-btn--s crayons-btn--secondary" href="${articleContainer.dataset.path}/edit" rel="nofollow">Edit</a>`,
       );
