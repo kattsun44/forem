@@ -72,6 +72,7 @@ Rails.application.routes.draw do
         resources :follows, only: [:create] do
           collection do
             get :tags
+            get :users
           end
         end
         namespace :followers do
