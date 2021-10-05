@@ -17,6 +17,13 @@ module Api
           .includes(:followable)
           .order(points: :desc)
       end
+
+      def users
+        @follows = @user.follows_by_type("User")
+          .select(%i[id followable_id followable_type points])
+          .includes(:followable)
+          .order(points: :desc)
+      end
     end
   end
 end
